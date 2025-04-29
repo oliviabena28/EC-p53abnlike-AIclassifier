@@ -101,10 +101,14 @@ class Attention(nn.Module):
         super().__init__()
         if cfg['model'] == 'VarMIL':
             self.model = VarMIL(cfg)
+        elif cfg['model'] == 'Attention':
+            # If the model is "Attention", initialize it appropriately
+            # You could add custom logic for Attention here if needed
+            self.model = VanillaModel(cfg['backbone'])  # For example, use VanillaModel here
         else:
-            raise NotImplementedError()
-
-    def trainable_parameters(self) -> None:
+            raise NotImplementedError(f"Model {cfg['model']} is not implemented.")
+    
+  def trainable_parameters(self) -> None:
         """
         Copy from: https://discuss.pytorch.org/t/how-do-i-check-the-number-of-parameters-of-a-model/4325/9
         """
