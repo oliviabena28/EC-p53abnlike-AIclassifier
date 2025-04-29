@@ -23,7 +23,7 @@ class AttentionMIL(object):
         self.cfg     = cfg
         self.device  = 'cuda' if torch.cuda.is_available() else 'cpu'
         self.writer  = SummaryWriter(log_dir=cfg['tensorboard_dir'])
-        self.model   = Attention(cfg['model']).to(self.device)
+        self.model = Attention(cfg).to(self.device)
 
     def init(self,
              dataloader: torch.utils.data.DataLoader) -> None:
