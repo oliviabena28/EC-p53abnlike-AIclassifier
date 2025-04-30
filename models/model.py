@@ -108,16 +108,16 @@ class Attention(nn.Module):
         else:
             raise NotImplementedError(f"Model {cfg['model']} is not implemented.")
     
-  def trainable_parameters(self) -> None:
+    def trainable_parameters(self) -> None:
         """
         Copy from: https://discuss.pytorch.org/t/how-do-i-check-the-number-of-parameters-of-a-model/4325/9
         """
         params = sum(p.numel() for p in self.model.parameters() if p.requires_grad)
         # print_mix(f'Total trainable parameters are __{params}__.', color='RED')
         print(f'Total trainable parameters are {params}.')
-
-  def forward(self,
-              x: torch.Tensor) -> torch.Tensor | torch.Tensor:
+    
+    def forward(self,
+                x: torch.Tensor) -> torch.Tensor | torch.Tensor:
         """
         x (input) : B (batch size) x K (nb_patch) x out_channel
         """
