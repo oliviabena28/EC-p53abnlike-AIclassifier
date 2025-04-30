@@ -116,8 +116,8 @@ class Attention(nn.Module):
         # print_mix(f'Total trainable parameters are __{params}__.', color='RED')
         print(f'Total trainable parameters are {params}.')
 
-    def forward(self,
-                x: torch.Tensor) -> torch.Tensor | torch.Tensor:
+  def forward(self,
+              x: torch.Tensor) -> torch.Tensor | torch.Tensor:
         """
         x (input) : B (batch size) x K (nb_patch) x out_channel
         """
